@@ -1,0 +1,75 @@
+/* MMM-TickRisk.css */
+
+.mmm-tickrisk-wrapper {
+  text-align: center;
+  padding: 4px 0;
+}
+
+.mmm-tickrisk-label {
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.75em;
+}
+
+.mmm-tickrisk-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  line-height: 1;
+}
+
+.mmm-tickrisk-icon {
+  font-size: 1.5em;
+  line-height: 1;
+  margin-right: 4px;
+}
+
+.mmm-tickrisk-score {
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.mmm-tickrisk-outof {
+  font-size: 1em;
+  opacity: 0.6;
+}
+
+.mmm-tickrisk-desc {
+  margin-top: 4px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.mmm-tickrisk-ts {
+  margin-top: 6px;
+  opacity: 0.5;
+}
+
+.mmm-tickrisk-error {
+  color: orange;
+  font-size: 0.85em;
+}
+
+.mmm-tickrisk-loading {
+  opacity: 0.6;
+}
+
+/* ── Risk level colors ── */
+.mmm-tickrisk-low      { color: #4caf50; }  /* green  */
+.mmm-tickrisk-moderate { color: #ffeb3b; }  /* yellow */
+.mmm-tickrisk-high     { color: #ff9800; }  /* orange */
+.mmm-tickrisk-veryhigh { color: #f44336; }  /* red    */
+
+/* ── Pulse animation on score update ── */
+@keyframes mmm-tickrisk-pulse-anim {
+  0%   { transform: scale(1);    opacity: 1;   }
+  30%  { transform: scale(1.25); opacity: 0.7; }
+  100% { transform: scale(1);    opacity: 1;   }
+}
+
+.mmm-tickrisk-pulse {
+  animation: mmm-tickrisk-pulse-anim 0.5s ease-out;
+}
