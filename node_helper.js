@@ -102,7 +102,10 @@ module.exports = NodeHelper.create({
 
   parseScore(html) {
     const patterns = [
-      /tick\s*(?:index|risk)[^0-9]{0,80}?(\d{1,2})\s*(?:out\s*of\s*10|\/\s*10)?/i,
+      // Most specific first: standalone number in a <strong> tag (site uses <strong>3</strong>)
+      /<strong[^>]*>\s*(\d{1,2})\s*<\/strong>/i,
+      // "tick index/risk" followed by digits — stop at HTML tags to avoid matching charset="UTF-8"
+      /tick\s*(?:index|risk)[^<0-9]{0,80}?(\d{1,2})\s*(?:out\s*of\s*10|\/\s*10)?/i,
       /(\d{1,2})\s*(?:out\s*of\s*10|\/\s*10)/i,
       /<(?:span|div|p|h[1-6]|strong)[^>]*>\s*(\d{1,2})\s*<\/(?:span|div|p|h[1-6]|strong)>/i,
     ];
